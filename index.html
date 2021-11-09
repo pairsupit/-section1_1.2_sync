@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function thisIsSyncFunction() {
+            let answer = fetch('http://localhost:3000/data')
+                .then((res) => {
+                    return res.json()
+                })
+                .then((obj) => {
+                    return obj.data;
+                })
+            return answer
+        }
+
+        thisIsSyncFunction()
+        .then((number1) => {
+            const calculation = number1 * 10
+            console.log(calculation);
+        })
+    </script>
+</body>
+
+</html>
